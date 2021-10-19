@@ -1,0 +1,44 @@
+<html>    
+   <head>    
+            <title>update</title>    
+        </head>    
+        <style>       
+            h1{    
+                font-family:"Arial Black", Gadget, sans-serif;    
+            }    
+            body{    
+                background-color:white;    
+            }    
+        </style>    
+    <body>    
+        <hr>    
+        <h3>Update Data </h3>    
+        <form action="/update_action" method="POST">    
+        {% for task in task %}    
+            Unique Object ID : {{ task['_id'] }}<br/>    
+        <input type="text" name="_id" value="{{ task['_id'] }}" hidden>    
+        
+        <table>    
+        <tr>    
+        <td>Name</td><td> : </td><td><input type="text" name="name" value="{{ task['name'] }}" placeholder="{{ task['name'] }}"></td>    
+        </tr>    
+        <tr>    
+        <td>brand_name</td><td> : </td><td><textarea type="text" name="brand_name" rows=3 cols=30 placeholder="{{ task['brand_name'] }}"> {{ task['brand_name'] }} </textarea></td>    
+        </tr>    
+        <tr>    
+        <td>regular_price_value</td><td> : </td><td><input type="text" name="regular_price_value" value="{{ task['regular_price_value'] }}" placeholder="{{ task['regular_price_value'] }}"></td>    
+        </tr>    
+        <tr>    
+        <td>offer_price_value</td><td> : </td><td><input type="text" name="offer_price_value" value="{{ task['offer_price_value'] }}" placeholder="{{ task['offer_price_value'] }}"></td>    
+        </tr> 
+        <tr>    
+        <td>classification_l1</td><td> : </td><td><input type="text" name="classification_l1" value="{{ task['classification_l1'] }}" placeholder="{{ task['classification_l1'] }}"></td>    
+        </tr>    
+        </table>    
+        {% endfor %}    
+            <button type="submit"> Update data </button>    
+            <br/>    
+        </form>    
+        <a href="/">Return to Home</a>    
+</body>    
+</html> 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    table, th, td {
+      border:1px solid black;
+    }
+    </style>
+<body>
+  <a href="./add"><button type="submit">Add</button></a>
+
+    <table style="width:100%">
+        <tr>
+          <th>Name</th>
+          <th>Brand_name</th>
+          <th>Regular_price_value</th>
+          <th>Offer_price_value</th>
+          <th>Currency</th>
+          <th>Classification_l1</th>     
+         <th>Image_url</th>
+        </tr>
+
+      {%for table in data %}
+        <tr>
+          <td>{{table["name"]}}</td>
+          <td>{{table["brand_name"]}}</td>
+          <td>{{table["regular_price_value"]}}</td>
+          <td>{{table["offer_price_value"]}}</td>
+          <td>{{table["currency"]}}</td>
+          <td>{{table["classification_l1"]}}</td>
+          <td>{{table["image_url"]}}</td> 
+          <td><a href="./remove?_id={{ table['_id'] }}"><button type="submit">DELETE</button></a></td> 
+          <td><a href="./update?_id={{ table['_id'] }}"><button type="submit">EDIT</button></a></td>
+        </tr>
+        
+      {% endfor %}
+    </table>
+        
+</body>
+</html>
